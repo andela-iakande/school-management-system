@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "AkandeImisioluwa",
+    "password": null,
+    "database": "school-management-system",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "AkandeImisioluwa",
+    "password": null,
+    "database": "school-management-system-test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "AkandeImisioluwa",
+    "password": null,
+    "database": "school-management-system",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
