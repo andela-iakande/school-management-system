@@ -1,7 +1,8 @@
-'use strict';
-module.exports = function(sequelize, DataTypes) {
-  var Subject = sequelize.define('Subject', {
-     subjectCode: {
+
+
+module.exports = (sequelize, DataTypes) => {
+  const Subject = sequelize.define('Subject', {
+    subjectCode: {
       allowNull: false,
       type: DataTypes.STRING,
       unique: true,
@@ -13,12 +14,12 @@ module.exports = function(sequelize, DataTypes) {
     },
   }, {
     classMethods: {
-      associate: function(models) {
+      associate(models) {
         // associations can be defined here
         Subject.belongsTo(models.Level, {
-            foreignKey: 'levelId',
-            onDelete: 'CASCADE',
-          });
+          foreignKey: 'levelId',
+          onDelete: 'CASCADE',
+        });
       }
     }
   });

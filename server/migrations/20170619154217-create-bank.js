@@ -1,6 +1,7 @@
-'use strict';
+
+
 module.exports = {
-  up: function(queryInterface, Sequelize) {
+  up(queryInterface, Sequelize) {
     return queryInterface.createTable('Bank', {
       id: {
         allowNull: false,
@@ -8,25 +9,20 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-     questionTitle: {
-      allowNull: false,
-      type: Sequelize.STRING,
-      unique: true,
-    },
-    questionContent: {
-      allowNull: false,
-      type: Sequelize.STRING,
-      unique: true,
-    },
-   levelId: {
-      type: Sequelize.INTEGER,
-       OnDelete: 'CASCADE',
-        references: {
-          model: 'Level',
-          key: 'id'
-        },
-        OnUpdate: 'cascade',
-    },
+      questionTitle: {
+        allowNull: false,
+        type: Sequelize.STRING,
+        unique: true,
+      },
+      questionContent: {
+        allowNull: false,
+        type: Sequelize.STRING,
+        unique: true,
+      },
+      levelId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -37,7 +33,7 @@ module.exports = {
       }
     });
   },
-  down: function(queryInterface, Sequelize) {
+  down(queryInterface, Sequelize) {
     return queryInterface.dropTable('Bank');
   }
 };

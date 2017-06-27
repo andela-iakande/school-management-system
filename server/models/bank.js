@@ -1,6 +1,7 @@
-'use strict';
-module.exports = function(sequelize, DataTypes) {
-  var Bank = sequelize.define('Bank', { 
+
+
+module.exports = (sequelize, DataTypes) => {
+  const Bank = sequelize.define('Bank', {
     questionTitle: {
       allowNull: false,
       type: DataTypes.STRING,
@@ -10,18 +11,18 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       type: DataTypes.STRING,
     },
-   levelId: {
+    levelId: {
       allowNull: false,
       type: DataTypes.INTEGER,
     },
   }, {
     classMethods: {
-      associate: function(models) {
+      associate(models) {
         // associations can be defined here
         Bank.belongsTo(models.Level, {
-            foreignKey: 'levelId',
-            onDelete: 'CASCADE',
-          });
+          foreignKey: 'levelId',
+          onDelete: 'CASCADE',
+        });
       }
     }
   });

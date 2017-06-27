@@ -1,6 +1,7 @@
-'use strict';
-module.exports = function(sequelize, DataTypes) {
-  var Level = sequelize.define('Level', {
+
+
+module.exports = (sequelize, DataTypes) => {
+  const Level = sequelize.define('Level', {
     subjectCode: {
       allowNull: false,
       type: DataTypes.INTEGER,
@@ -8,12 +9,12 @@ module.exports = function(sequelize, DataTypes) {
     },
   }, {
     classMethods: {
-      associate: function(models) {
+      associate(models) {
         // associations can be defined here
         Level.hasMany(models.Subject, {
-            foreignKey: 'subjectCode',
-            onDelete: 'CASCADE',
-          });
+          foreignKey: 'subjectCode',
+          onDelete: 'CASCADE',
+        });
       }
     }
   });

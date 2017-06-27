@@ -1,24 +1,26 @@
-'use strict';
-module.exports = function(sequelize, DataTypes) {
-  var Status = sequelize.define('Status', {
-     statusText: {
+
+
+module.exports = (sequelize, DataTypes) => {
+  const Status = sequelize.define('Status', {
+    statusText: {
       allowNull: false,
       type: DataTypes.TEXT,
     },
-     userId: {
+    userId: {
       allowNull: false,
       type: DataTypes.INTEGER,
     },
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-        Status.belongsTo(models.User, {
-            foreignKey: 'userId',
-            onDelete: 'CASCADE',
-          });
-      }
-    }
-  });
+  },
+    {
+      freezeTableName: true
+    });
+
+  Status.associate = (models) => {
+  // associations can be defined here
+    Status.belongsTo(models.Users, {
+      foreignKey: 'userId',
+      onDelete: 'CASCADE',
+    });
+  };
   return Status;
 };

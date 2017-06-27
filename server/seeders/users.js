@@ -1,16 +1,18 @@
 const bcrypt = require('bcrypt-nodejs');
+
 module.exports = {
   up: queryInterface =>
-    queryInterface.bulkInsert('User', [
+    queryInterface.bulkInsert('Users', [
       {
         userName: 'imizezek',
         firstName: 'Imisioluwa',
         lastName: 'Akande',
         email: 'imisioluwa.akande@andela.com',
-        groupId: 2,
+        groupId: 1,
         levelId: 2,
         gender: 'Male',
-        password: bcrypt.hashSync('imisioluwa.akande@andela.com', bcrypt.genSaltSync(8)),
+        password: bcrypt.hashSync('imisioluwa.akande@andela.com',
+         bcrypt.genSaltSync(8)),
         address: '2, ikeja lagos',
         createdAt: new Date(),
         updatedAt: new Date()
@@ -35,7 +37,7 @@ module.exports = {
         email: 'solomon@yahoo.com',
         groupId: 3,
         levelId: 3,
-        gender:'Male',
+        gender: 'Male',
         password: bcrypt.hashSync('123456', bcrypt.genSaltSync(8)),
         address: '12, Akinremi street, lagos',
         createdAt: new Date(),
@@ -68,5 +70,5 @@ module.exports = {
       }
     ], {}),
   down: queryInterface =>
-    queryInterface.bulkDelete('User', null, {})
+    queryInterface.bulkDelete('Users', null, {})
 };

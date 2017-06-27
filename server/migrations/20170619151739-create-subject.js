@@ -13,13 +13,8 @@ module.exports = {
       type: Sequelize.STRING,
     },
     levelId: {
+      allowNull: false,
       type: Sequelize.INTEGER,
-       OnDelete: 'CASCADE',
-        references: {
-          model: 'Level',
-          key: 'id'
-        },
-        OnUpdate: 'cascade',
     },
     createdAt: {
       allowNull: false,

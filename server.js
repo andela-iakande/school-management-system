@@ -7,5 +7,5 @@ app.set('port', port);
 
 const server = http.createServer(app);
 server.listen(port);
-console.log('server is already running on port 8000')
+console.log('server is already running on port 8000');
 

@@ -1,27 +1,22 @@
-'use strict';
+
+
 module.exports = {
-  up: function(queryInterface, Sequelize) {
+  up(queryInterface, Sequelize) {
     return queryInterface.createTable('Status', {
       id: {
-      allowNull: false,
-      autoIncrement: true,
-      primaryKey: true,
-      type: Sequelize.INTEGER
-    },
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
+      },
       statusText: {
-      allowNull: false,
-      type: Sequelize.TEXT,
-    },
-     userId: {
-      type: Sequelize.INTEGER,
-       OnDelete: 'CASCADE',
-        references: {
-          model: 'User',
-          key: 'id'
-        },
-        OnUpdate: 'cascade',
-      unique: true,
-    },
+        allowNull: false,
+        type: Sequelize.TEXT,
+      },
+      userId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -32,7 +27,7 @@ module.exports = {
       }
     });
   },
-  down: function(queryInterface, Sequelize) {
+  down(queryInterface, Sequelize) {
     return queryInterface.dropTable('Status');
   }
 };

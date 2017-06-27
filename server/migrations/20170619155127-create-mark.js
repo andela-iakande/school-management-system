@@ -25,23 +25,13 @@ module.exports = {
       type: Sequelize.INTEGER,
     },
     subjectId: {
+      allowNull: false,
       type: Sequelize.INTEGER,
-       OnDelete: 'CASCADE',
-        references: {
-          model: 'Subject',
-          key: 'id'
-        },
-        OnUpdate: 'cascade',
     },
     userId: {
+      allowNull: false,
       type: Sequelize.INTEGER,
       unique: true,
-       OnDelete: 'CASCADE',
-        references: {
-          model: 'User',
-          key: 'id'
-        },
-        OnUpdate: 'cascade',
     },
     createdAt: {
       allowNull: false,
